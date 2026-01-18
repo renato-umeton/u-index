@@ -1,52 +1,37 @@
 # CLAUDE.md
 
-This file provides guidance for AI assistants working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-This repository implements the **Umeton Index (U-index)**, a bibliometric metric that modifies the h-index to count only publications where a researcher is first or last author. The metric is designed to measure research leadership impact by filtering out middle-author positions.
+U-index is a bibliometric metric that modifies the h-index to count only publications where a researcher is **first or last author**. A researcher has U-index U if U of their first-or-last-authored papers have each been cited at least U times.
 
-**Definition:** A researcher has Umeton index U if U of their first-or-last-authored papers have each been cited at least U times.
-
-## Development Environment
-
-Python 3.14 with pipenv:
-```bash
-pipenv install           # Install dependencies
-pipenv shell             # Activate virtual environment
-```
-
-## Key Concepts (from manuscript)
-
-- **Leadership subset L(R):** Papers where researcher R is first OR last author
-- **Single-author papers:** Count as both first and last author
-- **Co-first/co-last authors:** All marked authors qualify for that position
-- **Corresponding author:** NOT used as a qualifying position
-
-The metric is bounded by the standard h-index (U <= h) and is field-dependent - only meaningful in disciplines where author position conventions exist (biomedical, life sciences, experimental sciences).
+Key domain rules:
+- Single-author papers count as first (and last) author
+- Co-first/co-last authors all qualify
+- Corresponding author does NOT qualify
 
 ## Development Commands
 
 ```bash
-pipenv install --dev     # Install all dependencies
-pipenv shell             # Activate virtual environment
-pipenv run pytest -v     # Run all tests
-pipenv run pytest tests/test_core.py -v  # Run specific test file
-pipenv run uindex "Author Name"  # Run CLI
+pipenv install --dev                           # Install all dependencies
+pipenv run pip install -e .                    # Install package in editable mode
+pipenv run pytest -v                           # Run all tests
+pipenv run pytest tests/test_pubmed.py -v      # Run specific test file
+pipenv run pytest tests/test_core.py::test_empty_list -v  # Run single test
+pipenv run uindex "Author Name"                # Run CLI
 ```
 
 ## Architecture
 
-```
-src/uindex/
-├── cli.py      - Click CLI entry point
-├── core.py     - U-index calculation (pure function)
-├── pubmed.py   - PubMed E-utilities client
-├── openalex.py - OpenAlex API client
-└── cache.py    - SQLite cache with TTL
-```
+**Data flow:** CLI (`cli.py`) orchestrates the pipeline:
+1. `PubMedClient.fetch_author_papers()` - searches PubMed, parses XML, determines author position (first/middle/last)
+2. Filter to only first/last author papers
+3. `OpenAlexClient.get_citations_by_dois()` - batches DOIs (50 at a time), fetches citation counts
+4. `calculate_u_index()` - pure function computing U-index on filtered papers
+5. Results cached to SQLite with 7-day TTL
 
-Data flow: CLI → PubMed (papers + positions) → filter first/last → OpenAlex (citations) → calculate U-index
+**Testing:** All HTTP calls are mocked using `pytest-httpx`. Tests provide XML fixtures for PubMed and JSON for OpenAlex. See `tests/test_pubmed.py` for XML response patterns.
 
 ## License
 

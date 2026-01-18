@@ -114,7 +114,7 @@ def test_full_uindex_calculation(httpx_mock: HTTPXMock, tmp_path):
 
     # Should show 4 qualifying papers (first/last), 1 unmatched
     assert "Qualifying papers (first/last author): 4" in result.output
-    assert "With citations: 3" in result.output
+    assert "Papers with citation data: 3" in result.output
     assert "Unmatched (no DOI or not in OpenAlex): 1" in result.output
 
     # Middle author paper should NOT appear in output
@@ -123,3 +123,11 @@ def test_full_uindex_calculation(httpx_mock: HTTPXMock, tmp_path):
     # First/last author papers should appear
     assert "Paper 1 - First Author" in result.output
     assert "Paper 2 - Last Author" in result.output
+
+    # Unmatched paper should appear in unmatched section
+    assert "UNMATCHED PAPERS" in result.output
+    assert "Paper 5 - No DOI (unmatched)" in result.output
+
+    # Links should be present
+    assert "https://pubmed.ncbi.nlm.nih.gov/" in result.output
+    assert "https://openalex.org/works/" in result.output

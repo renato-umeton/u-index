@@ -38,17 +38,22 @@ pipenv run uindex "Umeton Renato" --refresh
 
 ```
 Author: Umeton Renato
-U-index: 12
-h-index (estimated): 18
+Qualifying papers (first/last author): 5
 
-Qualifying papers (first/last author): 28
-├── With citations: 25
-└── Unmatched (no DOI or not in OpenAlex): 3
+U-index: 5
 
-Top qualifying papers:
-  1. Paper Title (2023) - 156 citations [first author]
-  2. Another Paper (2021) - 89 citations [last author]
-  ...
+Papers with citation data: 5
+Unmatched (no DOI or not in OpenAlex): 0
+
+================================================================================
+QUALIFYING PAPERS (sorted by citations)
+================================================================================
+
+1. Automated machine learning: Review of the state-of-the-art...
+   Year: 2021 | Position: last author | Citations: 794
+   PubMed:   https://pubmed.ncbi.nlm.nih.gov/32499001/
+   OpenAlex: https://openalex.org/works/https://doi.org/10.1016/j.artmed.2020.101822
+...
 ```
 
 ## Data Sources
