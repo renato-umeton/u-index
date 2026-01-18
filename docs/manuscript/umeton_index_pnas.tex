@@ -10,7 +10,7 @@
 
 \leadauthor{Umeton}
 
-\significancestatement{The h-index treats all co-authorships equally, allowing researchers to inflate their metrics through middle-author positions on collaborative papers without ever leading independent research. We propose the Umeton index (U-index), which counts only papers where the researcher is first or last author---positions that in biomedical and life sciences denote primary research contribution or supervisory leadership. This binary filter provides a transparent, easily calculable metric that isolates research leadership impact from collaborative contributions, addressing a well-documented limitation of the h-index in fields with meaningful authorship position conventions.}
+\significancestatement{The h-index treats all co-authorships equally, allowing researchers to inflate their metrics through middle-author positions on collaborative papers without leading independent research. I propose the Umeton index (U-index), which counts only papers where the researcher is first or last author---positions that in biomedical and life sciences denote primary research contribution or supervisory leadership. This binary filter provides a transparent, easily calculable metric that isolates research leadership impact from collaborative contributions, addressing a well-documented limitation of the h-index in fields with meaningful authorship position conventions.}
 
 \authorcontributions{R.U.\ designed research, performed research, and wrote the paper.}
 
@@ -56,7 +56,7 @@ where $c(p)$ denotes the citation count of paper $p$.
 
 In plain language: \textit{a researcher has Umeton index $U$ if $U$ of their first-or-last-authored papers have each been cited at least $U$ times.}
 
-Single-author papers qualify the author as both first and last. When multiple authors are designated as co-first or co-last (marked with asterisks or daggers), all such authors qualify. Corresponding authorship does not qualify, as practices vary substantially across fields.
+Single-author papers qualify the author as first. Corresponding authorship does not qualify, as practices vary substantially across fields. Co-first and co-last authorship are intentionally not taken into consideration as they are impossible to distinguish from the problematic incentive structure that this index wants to tame.
 
 \subsection*{Properties}
 
@@ -81,7 +81,7 @@ The U-index takes the limiting case: first/last positions receive weight 1, all 
 
 \subsection*{Limitations}
 
-The U-index assumes that first and last author positions carry meaning. This assumption holds in biomedical sciences, clinical medicine, and experimental sciences, but fails in fields with different conventions. In mathematics, theoretical physics, and economics, alphabetical author ordering is common. In large particle physics or astronomy collaborations, author lists follow consortium conventions. In such fields, the U-index is not meaningful.
+The U-index assumes that first and last author positions carry meaning. This assumption holds in biomedical sciences, clinical medicine, and experimental sciences, but fails in fields with different conventions. In mathematics, theoretical physics, and economics, alphabetical author ordering is common. In large particle physics or astronomy collaborations, author lists follow consortium conventions; there the U-index is not meaningful.
 
 Additionally, in hyperauthorship scenarios with hundreds of authors, distinguishing meaningful first/last authorship becomes problematic. The U-index may inadvertently credit authors at list boundaries due to alphabetical ordering rather than scientific contribution.
 
@@ -103,9 +103,7 @@ I do not propose the U-index as a replacement for the h-index. Rather, it serves
 
 Neither profile is inherently superior---science requires both leaders and collaborators---but the distinction matters for evaluative contexts such as assessing readiness for independent positions or research group leadership.
 
-The metric's simplicity is intentional. Unlike weighted approaches that assign fractional credit through complex formulas, the U-index provides a transparent answer to a specific question: how many impactful works has this researcher led or supervised? The binary nature eliminates debates about appropriate weighting schemes.
-
-It was intentional to not take care into account co-first or co-last authorship. The U-index is designed to be among the most stringent and harder to game biobliometric metrics.
+The metric's simplicity is intentional. Unlike weighted approaches that assign fractional credit through complex formulas, the U-index provides a transparent answer to a specific question: how many impactful works has this researcher led or supervised? The binary nature eliminates debates about appropriate weighting schemes. It was intentional discard co-first or co-last authorship, as the index is designed to be simple and strict.
 
 I recommend reporting the U-index alongside the h-index. Additionally, users may decompose $U$ into first-author ($U_F$) and last-author ($U_L$) components for finer-grained analysis of whether a researcher's leadership impact comes primarily from conducting research or supervising it.
 
@@ -115,9 +113,6 @@ I recommend reporting the U-index alongside the h-index. Additionally, users may
 
 The Umeton index offers a minimal, transparent modification to the h-index that isolates research leadership contributions. By counting only first-or-last-authored papers, it provides a metric resistant to inflation through middle authorship while remaining simple to calculate and interpret. For fields where authorship position denotes meaningful leadership roles, the U-index provides a useful complement to existing metrics.
 
-\subsection*{Availability}
-
-The U-index can be freely computed from public  bibliometric data. A prototype implementation is available \href{https://github.com/renato-umeton/u-index}{here}.
 
 \showmatmethods{}
 
