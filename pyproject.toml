@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uindex"
+version = "0.1.0"
+description = "Calculate the Umeton Index (U-index) for researchers"
+requires-python = ">=3.14"
+dependencies = [
+    "httpx",
+    "click",
+]
+
+[project.scripts]
+uindex = "uindex.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
