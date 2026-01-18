@@ -50,7 +50,7 @@ EFETCH_RESPONSE = """<?xml version="1.0" encoding="UTF-8"?>
 def test_fetch_author_papers(httpx_mock: HTTPXMock):
     """Fetches papers and identifies author position."""
     httpx_mock.add_response(
-        url="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Smith%20John%5BAuthor%5D&retmax=1000&retmode=xml",
+        url="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Smith%20John%5Bfull%5D&retmax=1000&retmode=xml",
         text=ESEARCH_RESPONSE,
     )
     httpx_mock.add_response(

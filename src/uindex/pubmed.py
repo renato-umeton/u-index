@@ -28,7 +28,7 @@ class PubMedClient:
 
     def _search_author(self, author_name: str) -> list[str]:
         """Search PubMed for author's papers, return PMIDs."""
-        query = quote(f"{author_name}[Author]")
+        query = quote(f"{author_name}[full]")
         url = f"{self.BASE_URL}/esearch.fcgi?db=pubmed&term={query}&retmax=1000&retmode=xml"
 
         response = self.client.get(url)
