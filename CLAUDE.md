@@ -24,3 +24,26 @@ pipenv shell             # Activate virtual environment
 - **Corresponding author:** NOT used as a qualifying position
 
 The metric is bounded by the standard h-index (U <= h) and is field-dependent - only meaningful in disciplines where author position conventions exist (biomedical, life sciences, experimental sciences).
+
+## Development Commands
+
+```bash
+pipenv install --dev     # Install all dependencies
+pipenv shell             # Activate virtual environment
+pipenv run pytest -v     # Run all tests
+pipenv run pytest tests/test_core.py -v  # Run specific test file
+pipenv run uindex "Author Name"  # Run CLI
+```
+
+## Architecture
+
+```
+src/uindex/
+├── cli.py      - Click CLI entry point
+├── core.py     - U-index calculation (pure function)
+├── pubmed.py   - PubMed E-utilities client
+├── openalex.py - OpenAlex API client
+└── cache.py    - SQLite cache with TTL
+```
+
+Data flow: CLI → PubMed (papers + positions) → filter first/last → OpenAlex (citations) → calculate U-index
