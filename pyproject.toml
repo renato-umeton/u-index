@@ -6,6 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "uindex"
 version = "0.1.0"
 description = "Calculate the Umeton Index (U-index) for researchers"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Renato Umeton", email = "renato.umeton@stjude.org"}]
 requires-python = ">=3.14"
 dependencies = [
     "httpx",

@@ -47,3 +47,7 @@ src/uindex/
 ```
 
 Data flow: CLI → PubMed (papers + positions) → filter first/last → OpenAlex (citations) → calculate U-index
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
