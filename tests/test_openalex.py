@@ -33,7 +33,7 @@ def test_get_citations_by_doi(httpx_mock: HTTPXMock):
 
 
 def test_get_citations_missing_doi(httpx_mock: HTTPXMock):
-    """Returns 0 for DOIs not found in OpenAlex."""
+    """Omits DOIs not found in OpenAlex from result."""
     httpx_mock.add_response(json={"results": []})
 
     client = OpenAlexClient()
