@@ -46,13 +46,11 @@ In plain language: **A researcher has Umeton index U if U of their first-or-last
 
 ### 2.1 Handling Edge Cases
 
-**Single-author papers:** A single-author paper qualifies the author as both first and last author; such papers are included in L(R).
+**Single-author papers:** A single-author paper qualifies the author as first author; such papers are included in L(R).
 
-**Two-author papers:** Both authors qualify for inclusion (one as first, one as last).
+**Corresponding authorship:** Corresponding author status does not qualify, as practices vary substantially across fields and journals.
 
-**Equal contribution markers:** When multiple authors are designated as co-first authors (often marked with asterisks or daggers), all such authors qualify for the first-author position. Similarly for shared last authorship.
-
-**Corresponding authorship:** We do not include corresponding author status as a qualifying position, as corresponding authorship practices vary substantially across fields and journals, and the corresponding author is frequently but not always the last author.
+**Co-first and co-last authorship:** These designations are intentionally not taken into consideration. They are impossible to distinguish from the problematic incentive structure that this index aims to address. The U-index is designed to be simple and strict.
 
 ---
 
@@ -139,7 +137,7 @@ Some fields are moving toward contribution-based authorship statements (e.g., CR
 
 ### 5.4 Small Group Bias
 
-Solo-authored and two-author papers automatically place all authors in qualifying positions. This may modestly favor researchers who publish primarily with small teams, though the effect is likely small in practice given that both the paper count and citation threshold must be satisfied.
+Solo-authored papers automatically place the author in a qualifying position, and two-author papers qualify both authors (one as first, one as last). This may modestly favor researchers who publish primarily with small teams, though the effect is likely small in practice given that both the paper count and citation threshold must be satisfied.
 
 ---
 
