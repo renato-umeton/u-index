@@ -1,8 +1,0 @@
-pyproject.toml
-src/uindex/__init__.py
-src/uindex.egg-info/PKG-INFO
-src/uindex.egg-info/SOURCES.txt
-src/uindex.egg-info/dependency_links.txt
-src/uindex.egg-info/entry_points.txt
-src/uindex.egg-info/requires.txt
-src/uindex.egg-info/top_level.txt
