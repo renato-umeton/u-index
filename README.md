@@ -41,7 +41,7 @@ The stacked bar chart shows how each researcher's h-index decomposes into leader
 
 ### Career Trajectories
 
-![Career trajectories](docs/images/figure_trajectories_8panel.png)
+![Career trajectories](docs/images/figure_trajectories_8panel_v2.png)
 
 The trajectory plots show how h-index (dashed) and U-index (solid) diverge over a career for all eight profiles, grouped by archetype:
 
