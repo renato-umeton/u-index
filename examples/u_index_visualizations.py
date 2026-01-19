@@ -593,7 +593,7 @@ def create_bar_chart_manuscript() -> plt.Figure:
     collab_values = [h - u for h, u in zip(h_values, u_values)]
     ratios = [f"{u/h:.0%}" for h, u in zip(h_values, u_values)]
 
-    fig, ax = plt.subplots(figsize=(10, 5), dpi=300)
+    fig, ax = plt.subplots(figsize=(10, 6), dpi=300)
 
     x = range(len(names))
 
@@ -617,7 +617,28 @@ def create_bar_chart_manuscript() -> plt.Figure:
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
-    plt.tight_layout()
+    # Add table below the chart
+    table_data = [
+        [str(u) for u in u_values],
+        [str(h) for h in h_values],
+    ]
+    row_labels = ["U", "h"]
+    table = ax.table(
+        cellText=table_data,
+        rowLabels=row_labels,
+        colLabels=names,
+        loc="bottom",
+        cellLoc="center",
+        bbox=[0.0, -0.35, 1.0, 0.15],
+    )
+    table.auto_set_font_size(False)
+    table.set_fontsize(8)
+
+    # Remove x-axis labels since table has column headers
+    ax.set_xticklabels([])
+    ax.set_xlabel("")
+
+    plt.subplots_adjust(bottom=0.25)
     return fig
 
 
