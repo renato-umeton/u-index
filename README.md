@@ -4,11 +4,10 @@ A CLI tool to calculate the Umeton Index (U-index) for researchers using PubMed 
 
 ## What is the U-index?
 
-The U-index is a bibliometric metric that modifies the h-index to count only publications where a researcher is **first or last author**. This isolates research leadership contributions from collaborative middle-author positions.
+The U-index is a bibliometric metric that modifies the h-index to count only publications where a researcher is **first or last author**. Corresponding authorship and co-first/co-last cases are intentionally excluded from the calculation. This isolates research leadership contributions from collaborative middle-author positions.
 
 **Definition:** A researcher has U-index U if U of their first-or-last-authored papers have each been cited at least U times.
 
-For the full methodology, see the [preprint](docs/manuscript/umeton_index_preprint.md).
 
 ## Installation
 
