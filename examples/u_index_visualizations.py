@@ -578,6 +578,45 @@ def create_scatter_manuscript() -> plt.Figure:
     return fig
 
 
+def create_bar_chart_manuscript() -> plt.Figure:
+    """Create publication-quality stacked bar chart for README."""
+
+    sorted_researchers = sorted(RESEARCHERS, key=lambda r: r["h"], reverse=True)
+
+    names = [r["name"].replace("Dr. ", "") for r in sorted_researchers]
+    h_values = [r["h"] for r in sorted_researchers]
+    u_values = [r["u"] for r in sorted_researchers]
+    collab_values = [h - u for h, u in zip(h_values, u_values)]
+    ratios = [f"{u/h:.0%}" for h, u in zip(h_values, u_values)]
+
+    fig, ax = plt.subplots(figsize=(10, 5), dpi=300)
+
+    x = range(len(names))
+
+    # U-index bars (bottom)
+    ax.bar(x, u_values, color="#0073c8", label="U-index (leadership)")
+
+    # Collaboration bars (top)
+    ax.bar(x, collab_values, bottom=u_values, color="#6b7280", alpha=0.5,
+           label="Collaboration contribution")
+
+    # Add ratio labels
+    for i, (h, ratio) in enumerate(zip(h_values, ratios)):
+        ax.annotate(f"U/h={ratio}", (i, h + 1), ha="center", fontsize=8, color="#666")
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(names, rotation=45, ha="right")
+    ax.set_xlabel("Researcher", fontsize=10)
+    ax.set_ylabel("Index Value", fontsize=10)
+    ax.set_title("H-index Decomposition: Leadership vs Collaboration", fontsize=12, fontweight="bold")
+    ax.legend(loc="upper right", frameon=False)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    plt.tight_layout()
+    return fig
+
+
 def create_manuscript_figure() -> plt.Figure:
     """Create publication-quality figure for manuscript."""
 
@@ -682,6 +721,18 @@ def main():
     plt.close(scatter_fig)
     print(f"  Saved to {output_dir / 'figure_scatter.pdf'}")
     print(f"  Saved to {output_dir / 'figure_scatter.png'}")
+
+    print("Generating bar chart manuscript figure...")
+    bar_fig = create_bar_chart_manuscript()
+    bar_fig.savefig(
+        output_dir / "figure_bar_chart.png",
+        bbox_inches="tight",
+        pad_inches=0.02,
+        facecolor="white",
+        dpi=300,
+    )
+    plt.close(bar_fig)
+    print(f"  Saved to {output_dir / 'figure_bar_chart.png'}")
 
     print("Generating manuscript figure...")
     manuscript_fig = create_manuscript_figure()

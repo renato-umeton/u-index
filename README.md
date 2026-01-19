@@ -20,12 +20,30 @@ The U-index addresses this by applying a binary filter:
 - First or last author → counts toward U-index
 - Middle author → does not count
 
-The figure above shows this relationship for simulated researcher profiles:
-- **Dr. Solo** (single-author theoretician): sits on the diagonal where U = h
-- **Dr. Independent** (small lab PI): stays close to the diagonal (U/h = 90%)
-- **Dr. Consortium** (large collaboration contributor): falls far below (U/h = 7.5%)
+The scatter plot above shows this relationship for eight simulated researcher profiles. The vertical distance from each point to the diagonal represents impact accumulated through middle-author positions.
 
-The vertical distance from each point to the diagonal represents impact accumulated through middle-author positions.
+| Researcher | h-index | U-index | U/h | Profile |
+|------------|---------|---------|-----|---------|
+| **Dr. Solo** | 15 | 15 | 100% | Single-author theoretician, sits on the diagonal |
+| **Dr. Independent** | 20 | 18 | 90% | Small lab PI, mostly first/last author |
+| **Dr. Early** | 12 | 10 | 83% | 5 years post-PhD, building publication record |
+| **Dr. Midcareer** | 25 | 18 | 72% | Mix of independent and supervised research |
+| **Dr. Balanced** | 28 | 14 | 50% | Equal leadership and collaboration |
+| **Dr. Senior** | 45 | 22 | 49% | Large lab leader, heavy supervision load |
+| **Dr. Collaborative** | 35 | 8 | 23% | Hub in large consortiums |
+| **Dr. Consortium** | 40 | 3 | 7.5% | Almost entirely middle-author positions |
+
+### Leadership vs Collaboration Decomposition
+
+![Stacked bar chart](docs/images/figure_bar_chart.png)
+
+The stacked bar chart shows how each researcher's h-index decomposes into leadership impact (U-index, blue) and collaboration contribution (gray).
+
+### Career Trajectories
+
+![Career trajectories](docs/images/figure_trajectories.png)
+
+The trajectory plots show how h-index and U-index diverge over a career. Dr. Independent's lines stay close together, while Dr. Collaborative's diverge dramatically as middle-author publications accumulate.
 
 ## Installation
 
