@@ -150,7 +150,11 @@ def generate_trajectory(researcher: dict, seed: int = 42) -> list[tuple[int, int
 
     scaled = [(0, 0, 0)]
     for year, h, u in trajectory[1:]:
-        scaled.append((year, int(h * scale_h), int(u * scale_u)))
+        scaled_h = int(h * scale_h)
+        scaled_u = int(u * scale_u)
+        # Ensure U <= h after scaling
+        scaled_u = min(scaled_u, scaled_h)
+        scaled.append((year, scaled_h, scaled_u))
 
     scaled[-1] = (researcher["years"], final_h, final_u)
 
