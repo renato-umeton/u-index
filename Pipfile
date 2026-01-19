@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 httpx = "*"
 click = "*"
+plotly = "*"
+matplotlib = "*"
 
 [dev-packages]
 pytest = "*"
