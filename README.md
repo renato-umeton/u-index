@@ -127,9 +127,9 @@ pipenv run pytest -v     # Run tests
 
 ### Example Visualizations
 
-Interactive visualizations demonstrating the U-index concept are available in the **[Jupyter notebook](examples/u_index_visualizations.ipynb)**, which renders directly on GitHub.
+Visualizations demonstrating the U-index concept are available in the **[Jupyter notebook](examples/u_index_visualizations.ipynb)**, which renders directly on GitHub.
 
-To generate standalone HTML files locally:
+To regenerate the figures locally:
 ```bash
 pipenv run python examples/u_index_visualizations.py
 ```
