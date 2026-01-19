@@ -41,7 +41,7 @@ The stacked bar chart shows how each researcher's h-index decomposes into leader
 
 ### Career Trajectories
 
-![Career trajectories](docs/images/figure_trajectories.png)
+![Career trajectories](docs/images/figure_trajectories_8panel.png)
 
 The trajectory plots show how h-index (dashed) and U-index (solid) diverge over a career for all eight profiles. Dr. Solo's lines overlap completely, while Dr. Consortium's diverge dramatically as middle-author publications accumulate.
 
