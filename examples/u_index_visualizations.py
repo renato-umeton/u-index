@@ -609,36 +609,34 @@ def create_bar_chart_manuscript() -> plt.Figure:
         ax.annotate(f"U/h={ratio}", (i, h + 1), ha="center", fontsize=8, color="#666")
 
     ax.set_xticks(x)
-    ax.set_xticklabels(names, rotation=45, ha="right")
-    ax.set_xlabel("Researcher", fontsize=10)
+    ax.set_xticklabels([])  # Hide x-tick labels, table will show names
+    ax.set_xlabel("")
     ax.set_ylabel("Index Value", fontsize=10)
     ax.set_title("H-index Decomposition: Leadership vs Collaboration", fontsize=12, fontweight="bold")
     ax.legend(loc="upper right", frameon=False)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
-    # Add table below the chart
+    # Add table below the chart aligned with bars
     table_data = [
+        names,
         [str(u) for u in u_values],
         [str(h) for h in h_values],
     ]
-    row_labels = ["U", "h"]
+    row_labels = ["", "U", "h"]
+
+    # Use bbox to position table precisely below the plot area
     table = ax.table(
         cellText=table_data,
         rowLabels=row_labels,
-        colLabels=names,
         loc="bottom",
         cellLoc="center",
-        bbox=[0.0, -0.35, 1.0, 0.15],
+        bbox=[-0.04, -0.22, 1.08, 0.2],
     )
     table.auto_set_font_size(False)
-    table.set_fontsize(8)
+    table.set_fontsize(9)
 
-    # Remove x-axis labels since table has column headers
-    ax.set_xticklabels([])
-    ax.set_xlabel("")
-
-    plt.subplots_adjust(bottom=0.25)
+    plt.subplots_adjust(bottom=0.22)
     return fig
 
 
