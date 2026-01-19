@@ -104,12 +104,9 @@ pipenv run pytest -v     # Run tests
 
 ### Example Visualizations
 
-Interactive visualizations demonstrating the U-index concept are available in `examples/output/`:
-- `scatter_h_vs_u.html` - H-index vs U-index scatter plot
-- `comparison_bar_chart.html` - Stacked bar chart showing leadership vs collaboration contributions
-- `career_trajectories.html` - Simulated career trajectories showing h/U divergence
+Interactive visualizations demonstrating the U-index concept are available in the **[Jupyter notebook](examples/u_index_visualizations.ipynb)**, which renders directly on GitHub.
 
-Generate them with:
+To generate standalone HTML files locally:
 ```bash
 pipenv run python examples/u_index_visualizations.py
 ```
