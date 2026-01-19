@@ -534,8 +534,8 @@ def create_scatter_manuscript() -> plt.Figure:
     ax.plot([0, max_val], [0, max_val], color="#999", linewidth=1, linestyle="--",
             label="U = h", zorder=1)
 
-    # Fill below diagonal to show "collaboration zone"
-    ax.fill_between([0, max_val], [0, max_val], [0, 0], alpha=0.05, color="#999")
+    # Fill above diagonal to show "impossible zone" (U cannot exceed h)
+    ax.fill_between([0, max_val], [0, max_val], [max_val, max_val], alpha=0.05, color="#999")
 
     # Color and marker by archetype
     archetype_styles = {
