@@ -620,10 +620,10 @@ def create_bar_chart_manuscript() -> plt.Figure:
 def create_manuscript_figure() -> plt.Figure:
     """Create publication-quality figure for manuscript."""
 
-    # All 8 researchers sorted by U/h ratio descending
+    # Grouped by archetype: Career Stage + Solo (row 1), Leadership Style + Consortium (row 2)
     selected = [
-        "Dr. Solo", "Dr. Independent", "Dr. Early", "Dr. Midcareer",
-        "Dr. Balanced", "Dr. Senior", "Dr. Collaborative", "Dr. Consortium"
+        "Dr. Early", "Dr. Midcareer", "Dr. Senior", "Dr. Solo",
+        "Dr. Independent", "Dr. Balanced", "Dr. Collaborative", "Dr. Consortium"
     ]
 
     colors = {
