@@ -620,16 +620,24 @@ def create_bar_chart_manuscript() -> plt.Figure:
 def create_manuscript_figure() -> plt.Figure:
     """Create publication-quality figure for manuscript."""
 
-    selected = ["Dr. Independent", "Dr. Collaborative", "Dr. Senior", "Dr. Solo"]
+    # All 8 researchers sorted by U/h ratio descending
+    selected = [
+        "Dr. Solo", "Dr. Independent", "Dr. Early", "Dr. Midcareer",
+        "Dr. Balanced", "Dr. Senior", "Dr. Collaborative", "Dr. Consortium"
+    ]
 
     colors = {
-        "Dr. Independent": "#ef4444",
-        "Dr. Collaborative": "#22c55e",
-        "Dr. Senior": "#3b82f6",
         "Dr. Solo": "#a855f7",
+        "Dr. Independent": "#ef4444",
+        "Dr. Early": "#3b82f6",
+        "Dr. Midcareer": "#0ea5e9",
+        "Dr. Balanced": "#22c55e",
+        "Dr. Senior": "#14b8a6",
+        "Dr. Collaborative": "#f97316",
+        "Dr. Consortium": "#ec4899",
     }
 
-    fig, axes = plt.subplots(2, 2, figsize=(8, 6), dpi=300)
+    fig, axes = plt.subplots(2, 4, figsize=(14, 6), dpi=300)
     axes = axes.flatten()
 
     for i, name in enumerate(selected):
