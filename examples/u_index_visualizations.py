@@ -575,7 +575,7 @@ def create_scatter_manuscript() -> plt.Figure:
 
     # Add annotation explaining the diagonal
     ax.annotate("U = h\n(all papers are\nfirst/last authored)",
-                xy=(max_val - 6, max_val - 6), fontsize=7, color="#666", ha="right",
+                xy=(max_val - 2, max_val - 2), fontsize=7, color="#666", ha="right",
                 style="italic")
 
     plt.tight_layout()
