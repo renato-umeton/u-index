@@ -624,7 +624,7 @@ def create_bar_chart_manuscript() -> plt.Figure:
         ax.text(i, -0.08, f"U={u}", ha="center", va="top", fontsize=8,
                 color="#0073c8", fontweight="bold", transform=trans)
         ax.text(i, -0.13, f"h={h}", ha="center", va="top", fontsize=8,
-                color="#555", fontweight="bold", transform=trans)
+                color="black", fontweight="bold", transform=trans)
 
     plt.subplots_adjust(bottom=0.18)
     return fig
